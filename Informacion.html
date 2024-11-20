@@ -8,17 +8,22 @@
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
-            background-color: #f0f4f8;
+            background-color: #006cd8;
         }
         h1 {
-            color: #333;
-            text-align: center;
+            color: #ffffff;
+            text-align: left;
+        }
+        h2 {
+            color: #ffffff;
+            text-align: left;
         }
         p {
-            color: #555;
+            color: #ffffff;
             max-width: 600px;
-            margin: 20px auto;
             line-height: 1.6;
+            text-align: left;
+            text-align: justify;
         }
         .back-button {
             position: absolute;
@@ -28,19 +33,24 @@
             border: none;
             font-size: 24px;
             cursor: pointer;
-            color: #333;
+            color: #000000;
         }
         .back-button::before{
             content: "←";
             font-size: 24px;
         }
         .back-button:hover{
-            color: #555;
+            color: #000000;
         }
+        
     </style>
 </head>
 <body>
-    <button class="back-button" onclick="window.history.back();"></button>
+    <nav style="text-align: center; margin-bottom: 20px; font-family: Arial; background-color: #4CAF50;">
+    <a href="index.html" style="margin-right: 10px;display: inline-block; padding: 10px 20px; margin-top: 15px; background-color: #4CAF50; color: #fff; text-decoration: none; border-radius: 5px;">Inicio</a>
+    <a href="Informacion.html" style="margin-right: 10px;display: inline-block; padding: 10px 20px; margin-top: 15px; background-color: #4CAF50; color: #fff; text-decoration: none; border-radius: 5px;">Información</a>
+</nav>
+    <button class="back-button" onclick="window.history.back();" aria-label=volver a página anterior></button>
     <div class="container" id="información" style="margin-top: 50px;">
         <h2>¿Que es UVAlert app?</h2>
         <p>UVAlert App es una aplicación desarrollada para Android con el fin de enviar mensajes de alerta sobre los niveles de rayos UV en el ambiente y asi saber cuando es el momento correcto para aplicarse protección o ponerse a refugio, con el fin de mantener a la gente segura y evitar quemaduras o problemas mayores causados por la exposición prolongada sobre la luz solar. Además el programa viene configurado para encender 3 leds, uno verde que indica que no hay peligro, uno amarillo que indica que ya empieza a ser peligroso y es recomendable aplicar crema, y otro rojo que indica que los niveles de UV son peligrosos y es obligatorio usar proteccion para evitar daños en la piel.</p>
@@ -48,7 +58,7 @@
         <p>Para funcionar la aplicación se conecta a un sensor de rayos ultravioleta a traves de Bluethoot utilizando un intermediario que permita enviar la infromacíon que recoge el sensor, transformala en un mensaje, y enviarlo por Bluethoot al teléfono, como por ejemplo una placa Arduino con un modulo Bluethoot, además del sensor UV, después de esto, segun los datos que hayamos introducido previamente al crear un usuario sobre nuestra tonalidad de piel, la placa arduino accedera a una base de datos para saber exactamente cuando enviar el mensaje de alerta en funcion de la tonalidad de nuestra piel y la sensibilidad de esta a la luz solar. Una vez que nuestra aplicación recibe este mensaje, llega una notificación directamente al telefonmo con el mensaje que haya recibiudo desde el Bluethoot.</p>
         <h2>¿Que elementos hacen falta?</h2>
         <p>Aqui esta una lista de los elementos fundamentales para el correcto funcionamiento de UVAlert App</p>
-        <ul>
+        <ul style="color:white">
             <li>En el dispositivo Android, se requiere conexion Bluethoot y un sistema operativo Android 7.0 (Nougat) o superiror.</li>
             <li>Un módulo Bluethoot que se conccte al dispositivo (por ejemeplo el HC-05) y que a su vez se conencte a una placa que sea compatible con codigo c++, en el cual esta escrito el programa, o en el caso de que la placa ya traiga integrada una conexion bluethoot no haria falta el modulo.</li>
             <li>Un sensor de rayos UV o ultravioletas que se concecte a una placa como las ya anteriormente menciondas</li>
