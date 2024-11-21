@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Información sobre UV Alert</title>
     <style>
+        
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
@@ -25,32 +26,29 @@
             text-align: left;
             text-align: justify;
         }
-        .back-button {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background-color: transparent;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #000000;
-        }
-        .back-button::before{
-            content: "←";
-            font-size: 24px;
-        }
-        .back-button:hover{
-            color: #000000;
-        }
         
+        
+        .barra-navegación2{
+            margin-top: 20px; 
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: Arial;
+            background-color: #4CAF50;
+            border-radius: 5px;
+            margin-top: 20px;
+            width: 100%;
+            position:absolute;
+            top:0%; 
+        }
     </style>
 </head>
 <body>
-    <nav style= "text-align: center;margin-bottom: 20px; font-family: Arial; background-color: #4CAF50;border-radius: 5px;margin-top: 20px;">
-    <a href="index.html" style="margin-right: 10px;display: inline-block; padding: 10px 20px; margin-top: 15px; background-color: #4CAF50; color: #fff; text-decoration: none; border-radius: 5px; font-size: large;">Inicio</a>
-    <a href="Informacion.html" style="margin-right: 10px;display: inline-block; padding: 10px 20px; margin-top: 15px; background-color: #4CAF50; color: #fff; text-decoration: none; border-radius: 5px;font-size: large;">Información</a>
-</nav>
-    <button class="back-button" onclick="window.history.back();" aria-label=volver a página anterior></button>
+    <div class="barra-navegación2">
+        <nav>
+            <a href="index.html" style="margin-right: 10px;display: inline-block; padding: 10px 20px; margin-top: 15px; background-color: #4CAF50; color: #fff; text-decoration: none; border-radius: 5px; font-size: large;">Inicio</a>
+            <a href="Informacion.html" style="margin-right: 10px;display: inline-block; padding: 10px 20px; margin-top: 15px; background-color: #4CAF50; color: #fff; text-decoration: none; border-radius: 5px;font-size: large;">Información</a>
+        </nav>
+    </div>
     <div class="container" id="información" style="margin-top: 50px;">
         <h2>¿Que es UVAlert app?</h2>
         <p>UVAlert App es una aplicación desarrollada para Android con el fin de enviar mensajes de alerta sobre los niveles de rayos UV en el ambiente y asi saber cuando es el momento correcto para aplicarse protección o ponerse a refugio, con el fin de mantener a la gente segura y evitar quemaduras o problemas mayores causados por la exposición prolongada sobre la luz solar. Además el programa viene configurado para encender 3 leds, uno verde que indica que no hay peligro, uno amarillo que indica que ya empieza a ser peligroso y es recomendable aplicar crema, y otro rojo que indica que los niveles de UV son peligrosos y es obligatorio usar proteccion para evitar daños en la piel.</p>
