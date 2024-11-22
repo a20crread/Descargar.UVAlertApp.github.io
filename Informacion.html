@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <link rel="icon" href="inventers logo.jpg" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Información sobre UV Alert</title>
     <style>
-        
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
@@ -20,7 +20,7 @@
         h2 {
             color: #ffffff;
             text-align: left;
-            max-width: 100%;
+            max-width: 100%
         }
         p {
             color: #ffffff;
@@ -32,6 +32,7 @@
         .ul{
             width: 100%;
             text-align: justify;
+            color: #ffffff;
         }
         .back-button {
             position: absolute;
@@ -49,7 +50,7 @@
             font-size: 24px;
         }
         .back-button:hover{
-            color: #ffffff;
+            color: #000000;
         }
         .barra-navegación2{
             margin-top: 10px; 
@@ -63,7 +64,29 @@
             top:0%; 
             left: 0%;            
         }
+        .formulario {
+            
+            font-family: Arial;
+            background-color: #4CAF50;
+            border-radius: 5px;
+            position:absolute;
+            bottom: auto;   
+        }
+        .boton-formulario{
+            background-color: #ffffff;
+            border-radius: 5;
+        }
+        
     </style>
+    
+    <script>
+        function alerta(event){
+            alert("Gracias por tu pregunta, te responderemos cuanto antes. Ahora serás redirigido a otra página.")
+            document.getElementById("Enviar").submit();
+            event.preventDefault();
+            this.submit();
+        }
+    </script>
 </head>
 <body>
     <div class="barra-navegación2">
@@ -80,7 +103,7 @@
         <p>Para funcionar la aplicación se conecta a un sensor de rayos ultravioleta a traves de Bluethoot utilizando un intermediario que permita enviar la infromacíon que recoge el sensor, transformala en un mensaje, y enviarlo por Bluethoot al teléfono, como por ejemplo una placa Arduino con un modulo Bluethoot, además del sensor UV, después de esto, segun los datos que hayamos introducido previamente al crear un usuario sobre nuestra tonalidad de piel, la placa arduino accedera a una base de datos para saber exactamente cuando enviar el mensaje de alerta en funcion de la tonalidad de nuestra piel y la sensibilidad de esta a la luz solar. Una vez que nuestra aplicación recibe este mensaje, llega una notificación directamente al telefonmo con el mensaje que haya recibiudo desde el Bluethoot.</p>
         <h2>¿Que elementos hacen falta?</h2>
         <p>Aqui esta una lista de los elementos fundamentales para el correcto funcionamiento de UVAlert App</p>
-        <ul style="color:white">
+        <ul class="ul">
             <li>En el dispositivo Android, se requiere conexion Bluethoot y un sistema operativo Android 7.0 (Nougat) o superiror.</li>
             <li>Un módulo Bluethoot que se conccte al dispositivo (por ejemeplo el HC-05) y que a su vez se conencte a una placa que sea compatible con codigo c++, en el cual esta escrito el programa, o en el caso de que la placa ya traiga integrada una conexion bluethoot no haria falta el modulo.</li>
             <li>Un sensor de rayos UV o ultravioletas que se concecte a una placa como las ya anteriormente menciondas</li>
@@ -93,6 +116,21 @@
         <h2>Visitanos en nuestras redes sociales: </h2>
         <h2><a href=https://www.instagram.com/_inventers_/> <img style = "width:20%" src = https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/132px-Instagram_logo_2016.svg.png></a>
             <a href=https://www.tiktok.com/@_inventers_?lang=es> <img style = "width:19%" src = https://cdn.pixabay.com/photo/2021/06/15/12/28/tiktok-6338432_960_720.png></a></h2>
+        
+        <h2>Tienes alguna pregunta sobre el proyecto o sobre nosotros? Pregúntanos!</h2>
+        <form class="formulario" id="Formulario" action="https://formspree.io/f/mnnqzrgn" method="POST" >
+            
+            <label for="nombre">Nombre: </label><br>
+            <input type="text" id="nombre" name="nombre" required><br><br>
+
+            <label for="email">Correo Electrónico: </label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="pregunta">Pregunta o comentario: </label><br><br>
+            <textarea id="mensaje" name="mensaje" rows="5" cols="40" required></textarea><br><br>
+
+            <input type="submit" value="enviar" id="Enviar" onsubmit="alerta(event)">
+        </form>
     </div>
 </body>
 </html>
