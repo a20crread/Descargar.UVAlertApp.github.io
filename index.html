@@ -9,21 +9,26 @@
         /* Estilos de la página */
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #006cd8;
+          font-size: 1rem;
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          background: linear-gradient(45deg, #007BFF, #28A745, #FFC107);
+          background-size: 400% 400%;
+          animation: gradientAnimation 10s ease infinite;
+          position: relative;
+          overflow: hidden;
         }
         .container {
-            text-align: center;
-            padding: 20px;
+            position: relative;
+            width: 90%;
+            max-width: 600px;
             background: #fff;
+            padding: 1rem;
             border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-            z-index: 10;
-            position:relative;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: auto;
         }
         h1 {
             color: #333;
@@ -31,6 +36,8 @@
             white-space: nowrap;
             overflow: hidden;
             text-align: center;
+            font-size: 2rem;
+            margin: 0.5rem 0;
         }
         
         @keyframes typing {
@@ -42,6 +49,8 @@
         }
         
         p {
+            color: #555;
+            font-size: 1rem;
             color: #555;
         }
         .download-button {
@@ -90,14 +99,26 @@
           width: 100%;
           height: 100%;
           overflow: hidden;
-          z-index: 0; 
-}
+          z-index: 0;
+        }
         
 
         @keyframes float {
           0% { transform: translate(-50%, -50%) scale(1); }
           50% { transform: translate(calc(100vw - 50%), calc(100vh - 50%)) scale(0.5); }
           100% { transform: translate(-50%, -50%) scale(1); }
+        }
+        @media (max-width: 768px) {
+          h1 {
+            font-size: 1.5rem;
+          }
+          p {
+            font-size: 0.9rem;
+          }
+          .download-button {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+          }
         }
     </style>
 </head>
