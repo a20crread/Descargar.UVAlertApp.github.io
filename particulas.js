@@ -29,7 +29,8 @@ for (let i = 0; i < particleCount; i++) {
 // Animar las partículas
 function animateParticles() {
   particles.forEach((p) => {
-   
+    const { element, velocity } = p;
+
     // Actualizar posiciones
     p.x += velocity.x;
     p.y += velocity.y;
@@ -46,5 +47,7 @@ function animateParticles() {
   // Llamar de nuevo a la animación
   requestAnimationFrame(animateParticles);
 }
+
 // Iniciar la animación
+console.log("Iniciando animación");
 animateParticles();
