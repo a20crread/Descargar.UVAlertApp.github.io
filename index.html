@@ -78,11 +78,7 @@
           height: 10px;
           background-color: rgba(255, 255, 255, 0.6);
           border-radius: 50%;
-          animation: float 10s infinite;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          animation-delay: calc(-1s * var(--i));
+          
         }
 
         @keyframes float {
@@ -90,15 +86,7 @@
           50% { transform: translate(calc(100vw - 50%), calc(100vh - 50%)) scale(0.5); }
           100% { transform: translate(-50%, -50%) scale(1); }
         }
-    
-          .particle {
-          position: absolute;
-          width: 10px;
-          height: 10px;
-          background-color: rgba(255, 255, 255, 0.8);
-          border-radius: 50%;
-        }
-
+        
     </style>
 </head>
 <body>
