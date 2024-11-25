@@ -2,7 +2,7 @@
 const container = document.querySelector('.background');
 
 // Crear partículas dinámicamente
-const particleCount = 30; // Número de partículas
+const particleCount = 50; // Número de partículas
 const particles = [];
 
 // Crear partículas y configurarlas
