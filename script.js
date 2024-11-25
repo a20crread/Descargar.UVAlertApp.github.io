@@ -3,24 +3,34 @@ import { Particula } from './particle.js';
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width = innerWidth;
+canvas.height = innerHeight;
 
 let particulas = [];
 
 // Crear partículas
-for (let i = 0; i < 50; i++) {
-    const x = Math.random() * canvas.width;
-    const y = Math.random() * canvas.height;
-    particulas.push(new Particula(x, y));
+for (let i = 0; i < 10; i++) {
+    particulas.push(new Particula(canvas.width / 2, canvas.height / 2));
 }
 
-// Animar las partículas
 function animar() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particulas.forEach((particula) => {
-        particula.dibujar(ctx);
-        particula.mover(canvas);
+        particulas.forEach((particula) => {
+            let dx = particula2.x - particula.x;
+            let dy = particula2.y - particula.y;
+            let dist = Math.sqrt(dx ** 2 + dy ** 2);
+
+            if (dist < 300) {
+                ctx.beginPath();
+                ctx.moveTo(bola.x, bola.y);
+                ctx.lineTo(bola2.x, bola2.y);
+                ctx.stroke();
+                ctx.closePath();
+            }
+        });
+        particula.dibujar();
+        particula.mover();
     });
     requestAnimationFrame(animar);
 }
