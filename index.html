@@ -28,6 +28,7 @@
             animation: typing 3s steps(20, end), blink 0.5s step-end infinite;
             white-space: nowrap;
             overflow: hidden;
+            text-align: center;
         }
         
         @keyframes typing {
@@ -89,18 +90,38 @@
           50% { transform: translate(calc(100vw - 50%), calc(100vh - 50%)) scale(0.5); }
           100% { transform: translate(-50%, -50%) scale(1); }
         }
-        
+       
+        .background {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          background-color: #000; 
+        }
+
+
+        .particle {
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          background-color: rgba(255, 255, 255, 0.8);
+          border-radius: 50%;
+          animation: moveParticle 5s linear infinite;
+          animation-delay: calc(-1s * var(--i)); 
+        }
+
     </style>
 </head>
 <body>
     
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
+    <div class="background">
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+</div>
+
 
     <div class="container" id="inicio">
         <h1 class="h1"> Bienvenido a UVAlert App</h1>
