@@ -25,6 +25,7 @@
         }
         h1 {
             color: #333;
+            animation: typing 3s steps(20, end), blink 0.5s step-end infinite;
         }
         p {
             color: #555;
@@ -77,31 +78,11 @@
           50% { transform: translate(calc(100vw - 50%), calc(100vh - 50%)) scale(0.5); }
           100% { transform: translate(-50%, -50%) scale(1); }
         }
-        .typing {
-          font-family: 'Courier New', monospace;
-          white-space: nowrap;
-          overflow: hidden;
-          border-right: 3px solid #007BFF;
-          animation: typing 3s steps(20, end), blink 0.5s step-end infinite;
-          text-align: center;
-          padding: 20px;
-          margin-bottom: 450px
-            
-        }
-
-        @keyframes typing {
-          from { width: 0; }
-          to { width: 100%; }
-        }
-
-        @keyframes blink {
-          50% { border-color: transparent; }
-        }
-
+        
     </style>
 </head>
 <body>
-    <div class="typing">Bienvenido a UVAlertApp</div
+    
     <div class="particle"></div>
     <div class="particle"></div>
     <div class="particle"></div>
@@ -111,7 +92,7 @@
     <div class="particle"></div>
 
     <div class="container" id="inicio">
-        <h1>Descarga UVAlert App</h1>
+        <h1 class="h1"> Descarga UVAlert App</h1>
         <p>Mantente seguro y recibe alertas personalizadas sobre los niveles de radiación UV.</p>
         <a href="UVAlert App.apk" class="download-button">Descargar para Android</a> 
         <br>
