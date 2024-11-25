@@ -10,17 +10,19 @@ for (let i = 0; i < particleCount; i++) {
   const particle = document.createElement('div');
   particle.classList.add('particle');
 
-  // Posición inicial aleatoria
-  particle.style.left = `${Math.random() * 100}vw`;
-  particle.style.top = `${Math.random() * 100}vh`;
+  // Posición inicial aleatoria en píxeles
+  const x = Math.random() * window.innerWidth;
+  const y = Math.random() * window.innerHeight;
+  particle.style.left = `${x}px`;
+  particle.style.top = `${y}px`;
 
   // Propiedades de movimiento
   const velocity = {
-    x: (Math.random() - 0.5) * 2, // Velocidad X aleatoria (-1 a 1)
-    y: (Math.random() - 0.5) * 2, // Velocidad Y aleatoria (-1 a 1)
+    x: (Math.random() - 0.5) * 4, // Velocidad X aleatoria (-2 a 2)
+    y: (Math.random() - 0.5) * 4, // Velocidad Y aleatoria (-2 a 2)
   };
 
-  particles.push({ element: particle, velocity });
+  particles.push({ element: particle, x, y, velocity });
   container.appendChild(particle);
 }
 
@@ -29,21 +31,17 @@ function animateParticles() {
   particles.forEach((p) => {
     const { element, velocity } = p;
 
-    // Obtener posiciones actuales
-    let x = parseFloat(element.style.left);
-    let y = parseFloat(element.style.top);
-
     // Actualizar posiciones
-    x += velocity.x;
-    y += velocity.y;
+    p.x += velocity.x;
+    p.y += velocity.y;
 
     // Rebotar contra los bordes
-    if (x <= 0 || x >= window.innerWidth) velocity.x *= -1;
-    if (y <= 0 || y >= window.innerHeight) velocity.y *= -1;
+    if (p.x <= 0 || p.x >= window.innerWidth - 10) velocity.x *= -1; // Rebotar en X
+    if (p.y <= 0 || p.y >= window.innerHeight - 10) velocity.y *= -1; // Rebotar en Y
 
     // Aplicar nuevas posiciones
-    element.style.left = `${x}px`;
-    element.style.top = `${y}px`;
+    element.style.left = `${p.x}px`;
+    element.style.top = `${p.y}px`;
   });
 
   // Llamar de nuevo a la animación
