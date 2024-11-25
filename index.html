@@ -26,7 +26,18 @@
         h1 {
             color: #333;
             animation: typing 3s steps(20, end), blink 0.5s step-end infinite;
+            white-space: nowrap;
+            overflow: hidden;
         }
+        
+        @keyframes typing {
+          from { width: 0; }
+          to { width: 100%; }
+        }
+        @keyframes blink {
+          50% { border-color: transparent; }
+        }
+        
         p {
             color: #555;
         }
@@ -92,7 +103,7 @@
     <div class="particle"></div>
 
     <div class="container" id="inicio">
-        <h1 class="h1"> Descarga UVAlert App</h1>
+        <h1 class="h1"> Bienvenido a UVAlert App</h1>
         <p>Mantente seguro y recibe alertas personalizadas sobre los niveles de radiación UV.</p>
         <a href="UVAlert App.apk" class="download-button">Descargar para Android</a> 
         <br>
