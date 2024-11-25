@@ -47,9 +47,48 @@
             box-shadow: 0 0 20px #28A745;
             transform: scale(1.1);
         }
+        body {
+  background: linear-gradient(45deg, #007BFF, #28A745, #FFC107);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+body {
+  position: relative;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  animation: float 10s infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: calc(-1s * var(--i));
+}
+
+@keyframes float {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(calc(100vw - 50%), calc(100vh - 50%)) scale(0.5); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
     </style>
 </head>
 <body>
+    <div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
     <div class="container" id="inicio">
         <h1>Descarga UVAlert App</h1>
         <p>Mantente seguro y recibe alertas personalizadas sobre los niveles de radiación UV.</p>
