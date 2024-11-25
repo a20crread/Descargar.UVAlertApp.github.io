@@ -30,7 +30,6 @@ for (let i = 0; i < particleCount; i++) {
 function animateParticles() {
   particles.forEach((p) => {
     const { element, velocity } = p;
-    bolas.forEach((bola) => {
         bolas.forEach((bola2) => {
             let dx = bola2.x - bola.x;
             let dy = bola2.y - bola.y;
