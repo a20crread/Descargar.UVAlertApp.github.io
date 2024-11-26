@@ -9,11 +9,27 @@
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
-            background-color: #006cd8;
+            background-color: #f9f9f9;
             max-width: 100%;
+            line-height: 1.6;
+            color: #333;
+        }
+        .info-section {
+          max-width: 800px;
+          margin: 50px auto;
+          padding: 20px;
+          background: #fff;
+          border-radius: 8px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          text-align: left;
+          animation: fadeIn 1s ease forwards;
         }
         h1 {
-            color: #ffffff;
+            font-size: 2rem;
+            color: #007BFF;
+            border-bottom: 2px solid #28A745;
+            display: inline-block;
+            margin-bottom: 20px;
             text-align: left;
             width: 100%;
         }
@@ -28,29 +44,44 @@
             line-height: 1.6;
             text-align: left;
             text-align: justify;
+            font-size: 1rem;
+            margin-bottom: 15px;
         }
         .ul{
             width: 100%;
             text-align: justify;
             color: #ffffff;
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 10px 0;
         }
         .back-button {
-            position: absolute;
-            top: 22px;
-            left: 26px;
-            background-color: transparent;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #ffffff;
-            font-weight: bold;
+          display: inline-block;
+          margin-top: 20px;
+          padding: 10px 20px;
+          color: #fff;
+          background-color: #007BFF;
+          text-decoration: none;
+          border-radius: 5px;
+          transition: background-color 0.3s ease, transform 0.2s ease;
         }
         .back-button::before{
             content: "←";
             font-size: 24px;
         }
         .back-button:hover{
-            color: #000000;
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         .barra-navegación2{
             margin-top: 10px; 
@@ -96,7 +127,7 @@
         </nav>
     </div>
     <button class="back-button" onclick="window.history.back();" aria-label=volver a página anterior></button>
-    <div class="container" id="información" style="margin-top: 50px;">
+    <div class="info-section" id="información" style="margin-top: 50px;">
         <h2>¿Que es UVAlert app?</h2>
         <p>UVAlert App es una aplicación desarrollada para Android con el fin de enviar mensajes de alerta sobre los niveles de rayos UV en el ambiente y asi saber cuando es el momento correcto para aplicarse protección o ponerse a refugio, con el fin de mantener a la gente segura y evitar quemaduras o problemas mayores causados por la exposición prolongada sobre la luz solar. Además el programa viene configurado para encender 3 leds, uno verde que indica que no hay peligro, uno amarillo que indica que ya empieza a ser peligroso y es recomendable aplicar crema, y otro rojo que indica que los niveles de UV son peligrosos y es obligatorio usar proteccion para evitar daños en la piel.</p>
         <h2>¿Como funciona?</h2>
