@@ -18,8 +18,8 @@ for (let i = 0; i < particleCount; i++) {
 
   // Propiedades de movimiento
   const velocity = {
-    x: (Math.random() - 0.5) * 4, // Velocidad X aleatoria (-2 a 2)
-    y: (Math.random() - 0.5) * 4, // Velocidad Y aleatoria (-2 a 2)
+    x: (Math.random() - 0.5) * 4 || 0.5, 
+    y: (Math.random() - 0.5) * 4 || 0.5, 
   };
 
   particles.push({ element: particle, x, y, velocity });
