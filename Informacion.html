@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" href="inventers_logo.jpg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información sobre UV Alert</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Barra de navegación */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #007BFF;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar .nav-links li {
+            display: inline-block;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            padding: 10px 15px;
+            transition: color 0.3s ease;
+            
+        }
+
+        .navbar .nav-links a:hover {
+            color: #FFC107;
+        }
+
+        /* Contenedor principal */
+        .info-section {
+            max-width: 800px;
+            margin: 100px auto 50px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-section h2 {
+            font-size: 1.8rem;
+            color: #007BFF;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #28A745;
+            display: inline-block;
+        }
+
+        .info-section p, .info-section ul {
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        .info-section ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="logo">UVAlert App</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Informacion.html">Información</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="info-section">
+        <h2>¿Que es UVAlert app?</h2>
+        <p>UVAlert App es una aplicación desarrollada para Android con el fin de enviar mensajes de alerta sobre los niveles de rayos UV en el ambiente y asi saber cuando es el momento correcto para aplicarse protección o ponerse a refugio, con el fin de mantener a la gente segura y evitar quemaduras o problemas mayores causados por la exposición prolongada sobre la luz solar. Además el programa viene configurado para encender 3 leds, uno verde que indica que no hay peligro, uno amarillo que indica que ya empieza a ser peligroso y es recomendable aplicar crema, y otro rojo que indica que los niveles de UV son peligrosos y es obligatorio usar proteccion para evitar daños en la piel.</p>
+        <h2>¿Como funciona?</h2>
+        <p>Para funcionar la aplicación se conecta a un sensor de rayos ultravioleta a traves de Bluethoot utilizando un intermediario que permita enviar la infromacíon que recoge el sensor, transformala en un mensaje, y enviarlo por Bluethoot al teléfono, como por ejemplo una placa Arduino con un modulo Bluethoot, además del sensor UV, después de esto, segun los datos que hayamos introducido previamente al crear un usuario sobre nuestra tonalidad de piel, la placa arduino accedera a una base de datos para saber exactamente cuando enviar el mensaje de alerta en funcion de la tonalidad de nuestra piel y la sensibilidad de esta a la luz solar. Una vez que nuestra aplicación recibe este mensaje, llega una notificación directamente al telefonmo con el mensaje que haya recibiudo desde el Bluethoot.</p>
+        <h2>¿Que elementos hacen falta?</h2>
+        <p>Aqui esta una lista de los elementos fundamentales para el correcto funcionamiento de UVAlert App</p>
+        <ul>
+            <li>En el dispositivo Android, se requiere conexion Bluethoot y un sistema operativo Android 7.0 (Nougat) o superiror.</li>
+            <li>Un módulo Bluethoot que se conccte al dispositivo (por ejemeplo el HC-05) y que a su vez se conencte a una placa que sea compatible con codigo c++, en el cual esta escrito el programa, o en el caso de que la placa ya traiga integrada una conexion bluethoot no haria falta el modulo.</li>
+            <li>Un sensor de rayos UV o ultravioletas que se concecte a una placa como las ya anteriormente menciondas</li>
+            <li>Una base de datos, ya sea en formato físico como podria ser una tarjeta sd o bien en formato digital como podria ser una base de datos en MySQL</li>
+            <li>Una placa protoboard y cables para conectar y unir todos los componentes a la placa base</li>
+            <li>OPCIONAL: El programa de la placa base viene configurado para que ademas de enviar los mensajes se enciendan unas luces led por lo que tambien se podrian poner 3 bombillas led, una roja (conectada al pin 8 de la placa), una amarilla (concectada al pin 7 de la placa) y una verde (conectada al pin 4 de la placa). Todas ellas deben conectarse a la placa desde la patilla positiva con una resistencia de 150 ohmios y la patilla negativa a la toma de tierra de la placa (GND)</li>
+        </ul>
+        <h2>Creditos</h2>
+        <p>Esta aplicación ha sido creada para un proyecto del grupo de investigación del I.E.S. Gran Capitan de Córdoba (España) Inventers, formado por alumnos de todos los cursos de eso y bachiller de este centro y dirigido por el profesor del centro Antonio Marcos Naz Lucena. Tanto el programa de ejecución para la placa base, asi como su diseño con todas las piezas y elementos necesarios, el desarrollo de las aplicaciónes y el desarrollo de esta misma página web a sido obra del alumno Adrián Cruz Recio para el proyecto ecottmetics basado en la creación de cremas y otras cosas reutilizando maquillaje reciclado.</p>
+    
+    </div>
+</body>
+</html>
