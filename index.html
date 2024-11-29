@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="icon" href="inventers logo.jpg" type="image/x-icon">
     <link rel="icon" href="inventers_logo.jpg" type="image/x-icon">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1280, initial-scale=0.75"> <!-- Forzar vista de escritorio -->
     <title>Descarga UV Alert</title>
     <style>
         /* Estilo General */
@@ -64,9 +63,6 @@
         .navbar .nav-links a:hover {
             background: rgba(255, 255, 255, 0.3);
         }
-        .navbar .logo:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
 
         /* Fondo con partículas */
         canvas {
@@ -89,6 +85,8 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             animation: fadeIn 1.5s ease forwards;
             margin-top: 15vh;
+            width: 70%;
+            max-width: 800px;
         }
 
         h1 {
@@ -167,71 +165,66 @@
     </div>
 
     <script>
-        // Inicialización de Canvas
-const canvas = document.getElementById('particles');
-const ctx = canvas.getContext('2d');
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
 
-// Ajustar el canvas al tamaño de la ventana
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
 
-// Partículas
-const particlesArray = [];
+        const particlesArray = [];
 
-class Particle {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.z = Math.random(); // Profundidad (0 = lejos, 1 = cerca)
-        this.size = Math.random() * 5 + 1; // Tamaño base
-        this.speedX = (Math.random() * 2 - 1) * this.z; // Velocidad en X
-        this.speedY = (Math.random() * 2 - 1) * this.z; // Velocidad en Y
-        this.opacity = 0.5 + this.z * 0.5; // Opacidad depende de la profundidad
-    }
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.z = Math.random();
+                this.size = Math.random() * 5 + 1;
+                this.speedX = (Math.random() * 2 - 1) * this.z;
+                this.speedY = (Math.random() * 2 - 1) * this.z;
+                this.opacity = 0.5 + this.z * 0.5;
+            }
 
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
 
-        // Rebote en los bordes
-        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-    }
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
 
-    draw() {
-        const adjustedSize = this.size * (this.z + 0.5); // Tamaño ajustado por profundidad
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, adjustedSize, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
-        ctx.fill();
-        ctx.closePath();
-    }
-}
+            draw() {
+                const adjustedSize = this.size * (this.z + 0.5);
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, adjustedSize, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                ctx.fill();
+                ctx.closePath();
+            }
+        }
 
-function initParticles() {
-    particlesArray.length = 0; // Limpiar el array
-    const numberOfParticles = 150; // Cantidad de partículas
-    for (let i = 0; i < numberOfParticles; i++) {
-        particlesArray.push(new Particle());
-    }
-}
+        function initParticles() {
+            particlesArray.length = 0;
+            const numberOfParticles = 150;
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
 
-function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particlesArray.forEach((particle) => {
-        particle.update();
-        particle.draw();
-    });
-    requestAnimationFrame(animateParticles);
-}
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particlesArray.forEach((particle) => {
+                particle.update();
+                particle.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
 
-// Inicializar y animar
-initParticles();
-animateParticles();
+        initParticles();
+        animateParticles();
     </script>
 </body>
 </html>
