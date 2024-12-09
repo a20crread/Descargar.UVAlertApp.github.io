@@ -143,17 +143,42 @@
         }
                 /* Interruptor de tema (original) */
         body[data-theme="dark"] {
-            background-color: #;
-            color: #;
-            .container{
-                background-color: #;
-                color: #;
-            }
+            .container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 30px;
+            background: rgba(28, 29, 39, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1.5s ease forwards;
+            margin-top: 15vh;
+        }
+            h1 {
+            font-size: 3rem;
+            color: #a29dff;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease forwards;
+        }
+            p {
+            font-size: 1.2rem;
+            color: #b5b5b5;
+            margin-bottom: 20px;
+        }
         }
 
         body[data-theme="light"] {
-            background-color: #f9f9f9;
-            color: #121212;
+            .container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1.5s ease forwards;
+            margin-top: 15vh;
+        }
         }
 
         .switch {
