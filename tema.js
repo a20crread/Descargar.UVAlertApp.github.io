@@ -16,4 +16,5 @@ if (switchInput) {
         localStorage.setItem('theme', newTheme); // Guardar preferencia
     });
 }
-window.matchMedia('(prefers-color-scheme: dark)').removeListener(() => {});
+window.matchMedia('(prefers-color-scheme: dark)').removeEventListener(() => {});
+window.matchMedia('(prefers-color-scheme: light)').removeEventListener(() => {});
