@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Información sobre UV Alert</title>
     <style>
-        :root {
-        color-scheme: auto; /* Ignorar preferencia del navegador */
-        }  
         /* Estilos generales */
         body {
             font-family: Arial, sans-serif;
@@ -28,11 +25,12 @@
             background-color: #007BFF;
             color: white;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between; /* Cambiado para mejor ajuste en móviles */
             align-items: center;
-            padding: 10px 0;
+            padding: 10px 15px; /* Ajuste de padding para mejor visualización */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
+            flex-wrap: wrap; /* Permitir que los elementos se ajusten a múltiples líneas si es necesario */
         }
 
         .navbar .logo {
@@ -43,7 +41,7 @@
         .navbar .nav-links {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 15px; /* Ajustar el espaciado entre enlaces */
             margin: 0;
             padding: 0;
         }
@@ -96,10 +94,6 @@
         body[data-theme="dark"] {
             background-color: #121212;
             color: #f9f9f9;
-            .info-section{
-                background-color: #121212;
-                color: #f9f9f9;
-            }
         }
 
         body[data-theme="light"] {
@@ -149,6 +143,7 @@
             background: var(--background);
             transition: 0.5s;
         }
+        
         .decoration {
             position: absolute;
             content: "";
@@ -163,6 +158,7 @@
             box-shadow: -7px 10px 0 #e5f041e6, 8px 15px 0 #e5f041e6, -17px 1px 0 #e5f041e6,
                 -20px 10px 0 #e5f041e6, -7px 23px 0 #e5f041e6, -15px 25px 0 #e5f041e6;
         }
+
         input:checked ~ .decoration {
             transform: translateX(-20px);
             width: 10px;
@@ -181,6 +177,20 @@
             box-shadow: inset 15px -4px 0px 15px #efdf2b, 0 0 10px 0px #efdf2b;
         }
 
+        /* Estilos para móviles */
+        @media (max-width: 768px) {
+            .navbar .logo {
+                font-size: 1.2rem; /* Ajuste para móviles */
+            }
+            .navbar .nav-links a {
+                font-size: 0.9rem; /* Ajuste para móviles */
+                padding: 5px 10px; /* Ajuste para móviles */
+            }
+            .info-section {
+                margin: 80px auto 30px; /* Ajuste del margen superior para el contenido */
+                padding: 15px; /* Ajuste del padding para el contenido */
+            }
+        }
     </style>
 </head>
 <body data-theme="light">
@@ -205,21 +215,21 @@
     <!-- Contenido principal -->
     <div class="info-section">
         <h2>¿Qué es UVAlert app?</h2>
-        <p>UVAlert App es una aplicación desarrollada para Android con el fin de enviar mensajes de alerta sobre los niveles de rayos UV en el ambiente y asi saber cuando es el momento correcto para aplicarse protección o ponerse a refugio, con el fin de mantener a la gente segura y evitar quemaduras o problemas mayores causados por la exposición prolongada sobre la luz solar. Además el programa viene configurado para encender 3 leds, uno verde que indica que no hay peligro, uno amarillo que indica que ya empieza a ser peligroso y es recomendable aplicar crema, y otro rojo que indica que los niveles de UV son peligrosos y es obligatorio usar proteccion para evitar daños en la piel.</p>
+        <p>UVAlert App es una aplicación desarrollada para Android con el fin de enviar mensajes de alerta sobre los niveles de rayos UV en el ambiente y así saber cuándo es el momento correcto para aplicarse protección o ponerse a refugio, con el fin de mantener a la gente segura y evitar quemaduras o problemas mayores causados por la exposición prolongada a la luz solar. Además, el programa viene configurado para encender 3 LEDs: uno verde que indica que no hay peligro, uno amarillo que indica que ya empieza a ser peligroso y es recomendable aplicar crema, y otro rojo que indica que los niveles de UV son peligrosos y es obligatorio usar protección para evitar daños en la piel.</p>
         <h2>¿Cómo funciona?</h2>
-        <p>Para funcionar la aplicación se conecta a un sensor de rayos ultravioleta a traves de Bluethoot utilizando un intermediario que permita enviar la infromacíon que recoge el sensor, transformala en un mensaje, y enviarlo por Bluethoot al teléfono, como por ejemplo una placa Arduino con un modulo Bluethoot, además del sensor UV, después de esto, segun los datos que hayamos introducido previamente al crear un usuario sobre nuestra tonalidad de piel, la placa arduino accedera a una base de datos para saber exactamente cuando enviar el mensaje de alerta en funcion de la tonalidad de nuestra piel y la sensibilidad de esta a la luz solar. Una vez que nuestra aplicación recibe este mensaje, llega una notificación directamente al telefonmo con el mensaje que haya recibiudo desde el Bluethoot.</p>
+        <p>Para funcionar, la aplicación se conecta a un sensor de rayos ultravioleta a través de Bluetooth utilizando un intermediario que permita enviar la información que recoge el sensor, transformarla en un mensaje, y enviarlo por Bluetooth al teléfono, como por ejemplo una placa Arduino con un módulo Bluetooth, además del sensor UV. Después de esto, según los datos que hayamos introducido previamente al crear un usuario sobre nuestra tonalidad de piel, la placa Arduino accederá a una base de datos para saber exactamente cuándo enviar el mensaje de alerta en función de la tonalidad de nuestra piel y la sensibilidad de esta a la luz solar. Una vez que nuestra aplicación recibe este mensaje, llega una notificación directamente al teléfono con el mensaje que haya recibido desde el Bluetooth.</p>
         <h2>¿Qué elementos hacen falta?</h2>
-        <p>Aqui esta una lista de los elementos fundamentales para el correcto funcionamiento de UVAlert App</p>
+        <p>Aquí está una lista de los elementos fundamentales para el correcto funcionamiento de UVAlert App:</p>
         <ul>
-            <li>En el dispositivo Android, se requiere conexion Bluethoot y un sistema operativo Android 7.0 (Nougat) o superiror.</li>
-            <li>Un módulo Bluethoot que se conccte al dispositivo (por ejemeplo el HC-05) y que a su vez se conencte a una placa que sea compatible con codigo c++, en el cual esta escrito el programa, o en el caso de que la placa ya traiga integrada una conexion bluethoot no haria falta el modulo.</li>
-            <li>Un sensor de rayos UV o ultravioletas que se concecte a una placa como las ya anteriormente menciondas</li>
-            <li>Una base de datos, ya sea en formato físico como podria ser una tarjeta sd o bien en formato digital como podria ser una base de datos en MySQL</li>
-            <li>Una placa protoboard y cables para conectar y unir todos los componentes a la placa base</li>
-            <li>OPCIONAL: El programa de la placa base viene configurado para que ademas de enviar los mensajes se enciendan unas luces led por lo que tambien se podrian poner 3 bombillas led, una roja (conectada al pin 8 de la placa), una amarilla (concectada al pin 7 de la placa) y una verde (conectada al pin 4 de la placa). Todas ellas deben conectarse a la placa desde la patilla positiva con una resistencia de 150 ohmios y la patilla negativa a la toma de tierra de la placa (GND)</li>
+            <li>En el dispositivo Android, se requiere conexión Bluetooth y un sistema operativo Android 7.0 (Nougat) o superior.</li>
+            <li>Un módulo Bluetooth que se conecte al dispositivo (por ejemplo, el HC-05) y que a su vez se conecte a una placa que sea compatible con código C++, en el cual está escrito el programa, o en el caso de que la placa ya traiga integrada una conexión Bluetooth, no haría falta el módulo.</li>
+            <li>Un sensor de rayos UV o ultravioletas que se conecte a una placa como las ya anteriormente mencionadas.</li>
+            <li>Una base de datos, ya sea en formato físico como podría ser una tarjeta SD o bien en formato digital como podría ser una base de datos en MySQL.</li>
+            <li>Una placa protoboard y cables para conectar y unir todos los componentes a la placa base.</li>
+            <li>OPCIONAL: El programa de la placa base viene configurado para que además de enviar los mensajes se enciendan unas luces LED, por lo que también se podrían poner 3 bombillas LED, una roja (conectada al pin 8 de la placa), una amarilla (conectada al pin 7 de la placa) y una verde (conectada al pin 4 de la placa). Todas ellas deben conectarse a la placa desde la patilla positiva con una resistencia de 150 ohmios y la patilla negativa a la toma de tierra de la placa (GND).</li>
         </ul>
         <h2>Créditos</h2>
-        <p>Esta aplicación ha sido creada para un proyecto del grupo de investigación del I.E.S. Gran Capitan de Córdoba (España) Inventers, formado por alumnos de todos los cursos de eso y bachiller de este centro y dirigido por el profesor del centro Antonio Marcos Naz Lucena. Tanto el programa de ejecución para la placa base, asi como su diseño con todas las piezas y elementos necesarios, el desarrollo de las aplicaciónes y el desarrollo de esta misma página web a sido obra del alumno Adrián Cruz Recio para el proyecto ecottmetics basado en la creación de cremas y otras cosas reutilizando maquillaje reciclado.</p>
+        <p>Esta aplicación ha sido creada para un proyecto del grupo de investigación del I.E.S. Gran Capitán de Córdoba (España) Inventers, formado por alumnos de todos los cursos de ESO y Bachiller de este centro y dirigido por el profesor del centro Antonio Marcos Naz Lucena. Tanto el programa de ejecución para la placa base, así como su diseño con todas las piezas y elementos necesarios, el desarrollo de las aplicaciones y el desarrollo de esta misma página web ha sido obra del alumno Adrián Cruz Recio para el proyecto Ecottmetics basado en la creación de cremas y otras cosas reutilizando maquillaje reciclado.</p>
     </div>
 </body>
 </html>
