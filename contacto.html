@@ -9,9 +9,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <script src='main.js'></script>
     <style>
-        body{
+        body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
             line-height: 1.6;
+            transition: background-color 0.5s, color 0.5s;
         }
 .contact-section {
     max-width: 800px;
@@ -48,7 +53,7 @@
 .social-links a {
     margin: 0 10px;
     display: inline-block;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease;    
 }
 
 .social-links img {
@@ -92,30 +97,35 @@
     background-color: #0056b3;
     transform: scale(1.05);
 }
-/* Barra de navegación */
-.navbar {
+        /* Barra de navegación */
+        .navbar {
             position: fixed;
             top: 0;
             width: 100%;
             background-color: #007BFF;
             color: white;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between; /* Cambiado para mejor ajuste en móviles */
             align-items: center;
-            padding: 10px 0;
+            padding: 15px 5px; /* Ajuste de padding para mejor visualización */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
+            flex-wrap: wrap; /* Permitir que los elementos se ajusten a múltiples líneas si es necesario */
         }
 
         .navbar .logo {
             font-size: 1.5rem;
             font-weight: bold;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
         }
 
         .navbar .nav-links {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 15px; /* Ajustar el espaciado entre enlaces */
             margin: 0;
             padding: 0;
         }
@@ -129,13 +139,15 @@
             color: white;
             font-size: 1rem;
             padding: 10px 15px;
+            border-radius: 5px;
             transition: color 0.3s ease;
-            
         }
 
         .navbar .nav-links a:hover {
             color: #FFC107;
         }
+                /* Interruptor de tema (original) */
+
 body[data-theme="dark"] {
             background-color: #121212;
             color: #f9f9f9;
@@ -192,6 +204,7 @@ body[data-theme="dark"] {
             background: var(--background);
             transition: 0.5s;
         }
+        
         .decoration {
             position: absolute;
             content: "";
@@ -201,11 +214,11 @@ body[data-theme="dark"] {
             right: 20%;
             top: 15%;
             background: #e5f041e6;
-            backdrop-filter: blur(10px);
             transition: all 0.5s;
             box-shadow: -7px 10px 0 #e5f041e6, 8px 15px 0 #e5f041e6, -17px 1px 0 #e5f041e6,
                 -20px 10px 0 #e5f041e6, -7px 23px 0 #e5f041e6, -15px 25px 0 #e5f041e6;
         }
+
         input:checked ~ .decoration {
             transform: translateX(-20px);
             width: 10px;
@@ -222,6 +235,20 @@ body[data-theme="dark"] {
         input:checked + .slider:before {
             transform: translateX(100%);
             box-shadow: inset 15px -4px 0px 15px #efdf2b, 0 0 10px 0px #efdf2b;
+        }
+                /* Estilos para móviles */
+                @media (max-width: 768px) {
+            .navbar .logo {
+                font-size: 1.2rem; /* Ajuste para móviles */
+            }
+            .navbar .nav-links a {
+                font-size: 0.9rem; /* Ajuste para móviles */
+                padding: 5px 10px; /* Ajuste para móviles */
+            }
+            .contact-section {
+                margin: 80px auto 30px; /* Ajuste del margen superior para el contenido */
+                padding: 15px; /* Ajuste del padding para el contenido */
+            }
         }
     </style>
 </head>
