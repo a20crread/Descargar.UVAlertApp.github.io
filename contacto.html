@@ -61,7 +61,14 @@
     height: 50px;
     border-radius: 50%;
 }
-
+.instagram{
+    color: #fc136b;
+    font-size: 60px;
+}
+.tiktok{
+    color: #000000;
+    font-size: 50px;
+}
 .social-links a:hover {
     transform: scale(1.2);
 }
@@ -117,7 +124,7 @@
             font-size: 1.5rem;
             font-weight: bold;
             color: white;
-            text-decoration: none;
+            text-decoration:none;
             border-radius: 5px;
             transition: background 0.3s ease;
         }
@@ -156,6 +163,9 @@ body[data-theme="dark"] {
                 color: #f9f9f9;
             }
             .contact-section p{
+                color: #f9f9f9;
+            }
+            .tiktok{
                 color: #f9f9f9;
             }
         }
@@ -264,7 +274,7 @@ body[data-theme="dark"] {
     <script src='tema.js'></script>
     <!-- Barra de navegación -->
     <nav class="navbar">
-        <div class="logo"><a href="index.html" style="color: white; text-decoration: none;">UVAlert App</a></div>
+        <div class="logo"><a href="index.html" style="text-decoration: none; color: white;">UVAlert App</a></div>
         <ul class="nav-links">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="Informacion.html">Información</a></li>
@@ -284,11 +294,11 @@ body[data-theme="dark"] {
         <!-- Redes Sociales -->
         <div class="social-links">
             <h3>Síguenos en nuestras redes sociales:</h3>
-            <a href="https://www.instagram.com/_inventers_/" target="_blank">
-                <i class="fab fa-instagram" style="font-size: 50px; color: #E4405F;"></i>
+            <a href="https://www.instagram.com/_inventers_/" target="_blank" class="instagram">
+                <i class="fab fa-instagram"></i>
             </a>
-            <a href="https://www.tiktok.com/@_inventers_?lang=es" target="_blank">
-                <i class="fab fa-tiktok" style="font-size: 50px; color: #000000;"></i>
+            <a href="https://www.tiktok.com/@_inventers_?lang=es" target="_blank" class="tiktok">
+                <i class="fab fa-tiktok"></i>
             </a>
         </div>
         
