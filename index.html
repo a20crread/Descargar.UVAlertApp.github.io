@@ -14,6 +14,8 @@
             background-size: 400% 400%;
             animation: gradientAnimation 15s ease infinite;
             overflow: hidden;
+            padding: 0;
+            line-height: 1.6;
         }
 
         /* Barra de navegación */
@@ -48,15 +50,19 @@
         .navbar .nav-links {
             list-style: none;
             display: flex;
-            gap: 10px;
+            gap: 15px;
             margin: 0;
+            padding: 0;
+        }
+        .navbar .nav-links li {
+            display: inline-block;
         }
 
         .navbar .nav-links a {
             text-decoration: none;
             color: white;
-            font-size: 0.9rem;
-            padding: 5px 8px;
+            font-size: 1rem;
+            padding: 10px 15px;
             border-radius: 5px;
             transition: background 0.3s ease;
         }
@@ -141,59 +147,22 @@
             from { opacity: 0; transform: translateX(-100%); }
             to { opacity: 1; transform: translateX(0); }
         }
-                /* Estilos para móviles */
-                @media (max-width: 768px) {
-            .navbar .logo {
-                font-size: 1.2rem; /* Ajuste para móviles */
-            }
-            h1 {
-                font-size: 2rem; /* Ajuste para móviles */
-            }
-            p {
-                font-size: 0.9rem; /* Ajuste para móviles */
-            }
-            .download-button, .info-button {
-                font-size: 0.8rem; /* Ajuste para móviles */
-                padding: 8px 12px; /* Ajuste para móviles */
-            }
-        }
                 /* Interruptor de tema (original) */
         body[data-theme="dark"] {
             .container {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            padding: 30px;
             background: rgba(28, 29, 39, 0.9);
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 1.5s ease forwards;
-            margin-top: 15vh;
         }
             h1 {
-            font-size: 3rem;
             color: #a29dff;
-            margin-bottom: 20px;
-            animation: slideIn 1s ease forwards;
         }
             p {
-            font-size: 1.2rem;
             color: #b5b5b5;
-            margin-bottom: 20px;
         }
         }
 
         body[data-theme="light"] {
             .container {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            padding: 30px;
             background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 1.5s ease forwards;
-            margin-top: 15vh;
         }
         }
 
@@ -249,7 +218,6 @@
             right: 20%;
             top: 15%;
             background: #e5f041e6;
-            backdrop-filter: blur(10px);
             transition: all 0.5s;
             box-shadow: -7px 10px 0 #e5f041e6, 8px 15px 0 #e5f041e6, -17px 1px 0 #e5f041e6,
                 -20px 10px 0 #e5f041e6, -7px 23px 0 #e5f041e6, -15px 25px 0 #e5f041e6;
@@ -271,11 +239,27 @@
             transform: translateX(100%);
             box-shadow: inset 15px -4px 0px 15px #efdf2b, 0 0 10px 0px #efdf2b;
         }
+        /* Estilos para móviles */
+        @media (max-width: 768px) {
+            .navbar .logo {
+                font-size: 1.2rem; /* Ajuste para móviles */
+            }
+            h1 {
+                font-size: 2rem; /* Ajuste para móviles */
+            }
+            p {
+                font-size: 0.9rem; /* Ajuste para móviles */
+            }
+            .download-button, .info-button {
+                font-size: 0.8rem; /* Ajuste para móviles */
+                padding: 8px 12px; /* Ajuste para móviles */
+            }
+        }
     </style>
 </head>
 <body data-theme="light">
     <label for="switch" class="switch">
-        <input id="switch" type="checkbox" />
+        <input id="switch" type="checkbox">
         <span class="slider"></span>
         <span class="decoration"></span>
     </label>
